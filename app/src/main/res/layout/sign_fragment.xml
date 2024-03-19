@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="model"
+            type="pet.perpet.equal.presentation.sign.viewmodel.SignViewModel" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/scorll"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    android:paddingStart="24dp"
+                    android:paddingEnd="24dp">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/iv_back"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="@{model::onBackClick}"
+                        android:src="@drawable/ic_back"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <include
+                    android:id="@+id/pet_select"
+                    layout="@layout/item_sign_pet_select" />
+
+                <include
+                    android:id="@+id/pet_name"
+                    layout="@layout/item_sign_pet_name"
+                    android:visibility="@{model.petSelect != -1 ? View.VISIBLE : View.GONE}"
+                    app:layout_behavior="@id/pet_select" />
+
+                <include
+                    android:id="@+id/pet_type"
+                    layout="@layout/item_sign_pet_name_type"
+                    android:visibility="@{model.petNameType ? View.VISIBLE : View.GONE}"
+                    app:layout_behavior="@id/pet_name" />
+
+                <include
+                    android:id="@+id/pet_sex"
+                    layout="@layout/item_sign_pet_sex"
+                    android:visibility="@{model.petSexType ? View.VISIBLE : View.GONE}"
+                    app:layout_behavior="@id/pet_type" />
+
+                <include
+                    android:id="@+id/pet_child"
+                    layout="@layout/item_sign_pet_childbirth"
+                    android:visibility="@{model.petSex == 2 ? View.VISIBLE : View.GONE}"
+                    app:layout_behavior="@id/pet_sex" />
+
+                <include
+                    android:id="@+id/pet_feeding"
+                    layout="@layout/item_sign_pet_feeding"
+                    android:visibility="@{model.feeding ? View.VISIBLE : View.GONE}"
+                    app:layout_behavior="@id/pet_child" />
+
+                <include
+                    android:id="@+id/pet_birth"
+                    layout="@layout/item_sign_pet_birth"
+                    android:visibility="@{model.birth ? View.VISIBLE : View.GONE}"
+                    app:layout_behavior="@id/pet_feeding" />
+
+                <include
+                    android:id="@+id/pet_weight"
+                    layout="@layout/item_sign_pet_weight"
+                    android:visibility="@{model.petBitrhType ? View.VISIBLE : View.GONE}"
+                    app:layout_behavior="@id/pet_birth" />
+
+                <include
+                    android:id="@+id/pet_bcs"
+                    layout="@layout/item_sign_pet_bcs"
+                    android:visibility="@{model.petweightType ? View.VISIBLE : View.GONE}"
+                    app:layout_behavior="@id/pet_weight" />
+
+                <include
+                    android:id="@+id/pet_disease"
+                    layout="@layout/item_sign_pet_disease"
+                    android:visibility="@{model.petBcs != -1 ? View.VISIBLE : View.GONE}"
+                    app:layout_behavior="@id/pet_bcs" />
+
+                <include
+                    android:id="@+id/pet_active"
+                    layout="@layout/item_sign_pet_active"
+                    android:visibility="@{model.petDisease != -1 ? View.VISIBLE : View.GONE}"
+                    app:layout_behavior="@id/pet_disease" />
+
+                <include
+                    android:id="@+id/pet_eat"
+                    layout="@layout/item_sign_pet_eat"
+                    android:visibility="@{model.petActive != -1 ? View.VISIBLE : View.GONE}"
+                    app:layout_behavior="@id/pet_active" />
+
+                <include
+                    android:id="@+id/pet_allegi"
+                    layout="@layout/item_sign_pet_allegi"
+                    android:visibility="@{model.petEat != -1 ? View.VISIBLE : View.GONE}"
+                    app:layout_behavior="@id/pet_eat" />
+
+                <include
+                    android:id="@+id/pet_living"
+                    layout="@layout/item_sign_pet_living"
+                    android:visibility="@{model.petAllegi != -1 ? View.VISIBLE : View.GONE}"
+                    app:layout_behavior="@id/pet_allegi" />
+
+                <include
+                    android:id="@+id/pet_living2"
+                    layout="@layout/item_sign_pet_living2"
+                    android:visibility="@{model.petLiving != -1 ? View.VISIBLE : View.GONE}"
+                    app:layout_behavior="@id/pet_living" />
+
+                <include
+                    android:id="@+id/pet_other"
+                    layout="@layout/item_sign_pet_other"
+                    android:visibility="@{model.petLiving2 != -1 ? View.VISIBLE : View.GONE}"
+                    app:layout_behavior="@id/pet_living2" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="8dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginEnd="24dp"
+                    android:background="@color/line_color"
+                    android:visibility="@{model.petOther != -1? View.VISIBLE : View.GONE}" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_submit"
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="24dp"
+                    android:layout_marginBottom="16dp"
+                    android:background="@drawable/black_radius_8"
+                    android:fontFamily="@font/gmarket_sans_medium"
+                    android:onClick="@{model::onSubmitClick}"
+                    android:text="@string/submit"
+                    android:textColor="@color/white"
+                    android:textSize="15dp"
+                    android:visibility="@{model.petOther != -1 ? View.VISIBLE : View.GONE}"
+                    app:layout_behavior="@id/pet_other"
+                    app:layout_constraintBottom_toBottomOf="parent" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+        </androidx.core.widget.NestedScrollView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

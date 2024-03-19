@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="model"
+            type="pet.perpet.equal.presentation.sign.viewmodel.PetBcsViewModel" />
+
+        <import type="android.view.View" />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_bcs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <View
+                android:layout_width="8dp"
+                android:layout_height="0dp"
+                android:background="@{model.error ? @color/line_color_error : @color/white}"
+                android:visibility="@{model.error ? View.VISIBLE : View.GONE}"
+                app:layout_constraintBottom_toBottomOf="@id/line2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tv_bcs" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_bcs"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginEnd="24dp"
+                android:fontFamily="@font/gmarket_sans_bold"
+                android:paddingTop="24dp"
+                android:text="@{model.title}"
+                android:textColor="@color/black"
+                android:textSize="17dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_error"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="24dp"
+                android:fontFamily="@font/gmarket_sans_bold"
+                android:text="@string/sign_comment_125"
+                android:textSize="13dp"
+                android:textColor="@{model.error ? @color/line_color_error : @color/white}"
+                android:visibility="@{model.error ? View.VISIBLE : View.GONE}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_bcs" />
+
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_asked"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:fontFamily="@font/gmarket_sans_bold"
+                android:onClick="@{model::onBcsAskClick}"
+                android:paddingTop="16dp"
+                android:text="@{model.viewAsk}"
+                android:textColor="@color/text_asked_green"
+                android:textSize="13dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_error" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_bcs_comment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="24dp"
+                android:fontFamily="@font/gmarket_sans_medium"
+                android:text="@string/sign_comment_19"
+                android:textColor="@color/text_hint_color"
+                android:textColorHint="@color/text_hint_color"
+                android:textSize="13dp"
+                android:visibility="@{model.petBcsAsk ? View.VISIBLE : View.GONE}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_asked"
+                tools:ignore="DuplicateClickableBoundsCheck" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_bcs1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="24dp"
+                android:onClick="@{model::onBcsClick}"
+                android:tag="0"
+                android:visibility="@{model.petBcs == 0 || model.petBcsAllView == false ? View.VISIBLE : View.GONE}"
+                app:layout_constraintTop_toBottomOf="@id/tv_bcs_comment">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_bcs1"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:background="@drawable/border_1_ddd_raduis_8"
+                    android:src="@{model.petSelect == 1 ? @drawable/bcs_dog_1 : @drawable/bcs_cat_1}"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/gmarket_sans_medium"
+                    android:lineSpacingExtra="8dp"
+                    android:text="@string/sign_comment_20"
+                    android:textColor="@color/text_hint_color"
+                    android:textSize="15dp"
+                    app:layout_constraintStart_toEndOf="@id/iv_bcs1"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginBottom="8dp"
+                    android:fontFamily="@font/gmarket_sans_medium"
+                    android:lineSpacingExtra="8dp"
+                    android:text="@{model.change}"
+                    android:visibility="@{model.petBcsAllView == true ? View.VISIBLE : View.GONE}"
+                    android:onClick="@{model::onChangeClick}"
+                    android:textColor="@color/text_hint_color"
+                    android:textSize="15dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/iv_bcs1" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_bcs2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="24dp"
+                android:onClick="@{model::onBcsClick}"
+                android:tag="1"
+                android:visibility="@{model.petBcs == 1 || model.petBcsAllView == false ? View.VISIBLE : View.GONE}"
+                app:layout_constraintTop_toBottomOf="@id/cl_bcs1">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_bcs2"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:background="@drawable/border_1_ddd_raduis_8"
+                    android:src="@{model.petSelect == 1 ? @drawable/bcs_dog_2 : @drawable/bcs_cat_2}"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/gmarket_sans_medium"
+                    android:lineSpacingExtra="8dp"
+                    android:text="@string/sign_comment_21"
+                    android:textColor="@color/text_hint_color"
+                    android:textSize="15dp"
+                    app:layout_constraintStart_toEndOf="@id/iv_bcs2"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginBottom="8dp"
+                    android:fontFamily="@font/gmarket_sans_medium"
+                    android:lineSpacingExtra="8dp"
+                    android:text="@{model.change}"
+                    android:visibility="@{model.petBcsAllView == true ? View.VISIBLE : View.GONE}"
+                    android:onClick="@{model::onChangeClick}"
+                    android:textColor="@color/text_hint_color"
+                    android:textSize="15dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/iv_bcs2" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_bcs3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="24dp"
+                android:onClick="@{model::onBcsClick}"
+                android:tag="2"
+                android:visibility="@{model.petBcs == 2 || model.petBcsAllView == false ? View.VISIBLE : View.GONE}"
+                app:layout_constraintTop_toBottomOf="@id/cl_bcs2">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_bcs3"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:background="@drawable/border_1_ddd_raduis_8"
+                    android:src="@{model.petSelect == 1 ? @drawable/bcs_dog_3 : @drawable/bcs_cat_3}"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/gmarket_sans_medium"
+                    android:lineSpacingExtra="8dp"
+                    android:text="@string/sign_comment_22"
+                    android:textColor="@color/text_hint_color"
+                    android:textSize="15dp"
+                    app:layout_constraintStart_toEndOf="@id/iv_bcs3"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginBottom="8dp"
+                    android:fontFamily="@font/gmarket_sans_medium"
+                    android:lineSpacingExtra="8dp"
+                    android:text="@{model.change}"
+                    android:visibility="@{model.petBcsAllView == true ? View.VISIBLE : View.GONE}"
+                    android:onClick="@{model::onChangeClick}"
+                    android:textColor="@color/text_hint_color"
+                    android:textSize="15dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/iv_bcs3" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_bcs4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="24dp"
+                android:onClick="@{model::onBcsClick}"
+                android:tag="3"
+                android:visibility="@{model.petBcs == 3 || model.petBcsAllView == false ? View.VISIBLE : View.GONE}"
+                app:layout_constraintTop_toBottomOf="@id/cl_bcs3">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_bcs4"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:background="@drawable/border_1_ddd_raduis_8"
+                    android:src="@{model.petSelect == 1 ? @drawable/bcs_dog_4 : @drawable/bcs_cat_4}"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/gmarket_sans_medium"
+                    android:lineSpacingExtra="8dp"
+                    android:text="@string/sign_comment_23"
+                    android:textColor="@color/text_hint_color"
+                    android:textSize="15dp"
+                    app:layout_constraintStart_toEndOf="@id/iv_bcs4"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginBottom="8dp"
+                    android:fontFamily="@font/gmarket_sans_medium"
+                    android:lineSpacingExtra="8dp"
+                    android:text="@{model.change}"
+                    android:visibility="@{model.petBcsAllView == true ? View.VISIBLE : View.GONE}"
+                    android:onClick="@{model::onChangeClick}"
+                    android:textColor="@color/text_hint_color"
+                    android:textSize="15dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/iv_bcs4" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_bcs5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="24dp"
+                android:onClick="@{model::onBcsClick}"
+                android:tag="4"
+                android:visibility="@{model.petBcs == 4 || model.petBcsAllView == false ? View.VISIBLE : View.GONE}"
+                app:layout_constraintTop_toBottomOf="@id/cl_bcs4">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_bcs5"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:background="@drawable/border_1_ddd_raduis_8"
+                    android:src="@{model.petSelect == 1 ? @drawable/bcs_dog_5 : @drawable/bcs_cat_5}"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/gmarket_sans_medium"
+                    android:lineSpacingExtra="8dp"
+                    android:text="@string/sign_comment_24"
+                    android:textColor="@color/text_hint_color"
+                    android:textSize="15dp"
+                    app:layout_constraintStart_toEndOf="@id/iv_bcs5"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginBottom="8dp"
+                    android:fontFamily="@font/gmarket_sans_medium"
+                    android:lineSpacingExtra="8dp"
+                    android:text="@{model.change}"
+                    android:visibility="@{model.petBcsAllView == true ? View.VISIBLE : View.GONE}"
+                    android:onClick="@{model::onChangeClick}"
+                    android:textColor="@color/text_hint_color"
+                    android:textSize="15dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/iv_bcs5" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <pet.perpet.framework.widget.CheckedAppCompatButton
+                android:id="@+id/line2"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="32dp"
+                android:visibility="invisible"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cl_bcs5" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <View
+            android:id="@+id/line1"
+            android:layout_width="match_parent"
+            android:layout_height="8dp"
+            android:background="@color/line_color"
+            app:layout_constraintTop_toBottomOf="@id/cl_bcs" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

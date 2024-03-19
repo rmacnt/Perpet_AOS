@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/screen_search">
+
+
+    <fragment
+        android:id="@+id/search_fragment"
+        android:name="pet.perpet.equal.presentation.search.fragment.SearchFragment">
+
+
+        <argument
+            android:name="keyword"
+            android:defaultValue="@null"
+            app:argType="string"
+            app:nullable="true" />
+
+        <argument
+            android:name="type"
+            android:defaultValue="0"
+            app:argType="integer" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/search_content_fragment"
+        android:name="pet.perpet.equal.presentation.search.fragment.SearchContentFragment">
+
+
+        <argument
+            android:name="keyword"
+            android:defaultValue="@null"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/search_supplement_fragment"
+        android:name="pet.perpet.equal.presentation.search.fragment.SearchSupplementFragment">
+
+
+        <argument
+            android:name="keyword"
+            android:defaultValue="@null"
+            app:argType="string"
+            app:nullable="true" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/search_faq_fragment"
+        android:name="pet.perpet.equal.presentation.search.fragment.SearchFaqFragment">
+
+
+        <argument
+            android:name="keyword"
+            android:defaultValue="@null"
+            app:argType="string"
+            app:nullable="true" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/search_tag_fragment"
+        android:name="pet.perpet.equal.presentation.search.fragment.SearchTagFragment">
+
+
+        <argument
+            android:name="keyword"
+            android:defaultValue="@null"
+            app:argType="string"
+            app:nullable="true" />
+
+    </fragment>
+
+</navigation>

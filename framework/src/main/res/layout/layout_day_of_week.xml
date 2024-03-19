@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.AppCompatTextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/txt_day_of_week"
+    android:layout_width="48dp"
+    android:layout_height="40dp"
+    android:gravity="center"
+    android:paddingBottom="8dp"
+    android:fontFamily="@font/gmarket_sans_medium"
+    android:textColor="@color/black"
+    android:textSize="15dp" />

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/screen_more">
+
+    <fragment
+        android:id="@+id/more_item_card_fragment"
+        android:name="pet.perpet.equal.presentation.more.fragment.MoreItemCardFragment">
+
+
+        <argument
+            android:name="pet"
+            android:defaultValue="@null"
+            app:argType="pet.perpet.domain.model.pet.Pet"
+            app:nullable="true" />
+    </fragment>
+
+
+
+</navigation>

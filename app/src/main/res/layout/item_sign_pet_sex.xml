@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="model"
+            type="pet.perpet.equal.presentation.sign.viewmodel.PetSexViewModel" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_sex"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <View
+                android:layout_width="8dp"
+                android:layout_height="0dp"
+                android:background="@color/line_color_error"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@id/line2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tv_sex" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_sex"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:fontFamily="@font/gmarket_sans_bold"
+                android:paddingTop="24dp"
+                android:text="@{model.title}"
+                android:textColor="@color/black"
+                android:textSize="17dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_asked"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:onClick="@{model::onSexAskClick}"
+                android:fontFamily="@font/gmarket_sans_bold"
+                android:paddingTop="16dp"
+                android:text="@{model.viewAsk}"
+                android:textColor="@color/text_asked_green"
+                android:textSize="13dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_sex" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_sex_comment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="24dp"
+                android:fontFamily="@font/gmarket_sans_medium"
+                android:text="@string/sign_comment_8"
+                android:textColor="@color/text_hint_color"
+                android:textColorHint="@color/text_hint_color"
+                android:textSize="13dp"
+                android:visibility="@{model.petSexAsk ? View.VISIBLE : View.GONE}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_asked"
+                tools:ignore="DuplicateClickableBoundsCheck" />
+
+            <pet.perpet.framework.widget.CheckedAppCompatButton
+                android:id="@+id/btn_male"
+                setChecked="false"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="16dp"
+                android:background="@{model.petSex == 0 ? @drawable/black_radius_8: @drawable/border_1_black_radius_8}"
+                android:fontFamily="@font/gmarket_sans_medium"
+                android:onClick="@{model::onSexClick}"
+                android:paddingStart="24dp"
+                android:paddingTop="14dp"
+                android:paddingEnd="24dp"
+                android:paddingBottom="14dp"
+                android:tag="0"
+                android:text="@string/male"
+                android:textColor="@{model.petSex == 0 ? @color/white: @color/black}"
+                android:textSize="15dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_sex_comment"
+                tools:ignore="DuplicateClickableBoundsCheck" />
+
+            <pet.perpet.framework.widget.CheckedAppCompatButton
+                android:id="@+id/btn_female"
+                setChecked="false"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:background="@{model.petSex == 1 ? @drawable/black_radius_8: @drawable/border_1_black_radius_8}"
+                android:fontFamily="@font/gmarket_sans_medium"
+                android:onClick="@{model::onSexClick}"
+                android:paddingStart="24dp"
+                android:paddingTop="14dp"
+                android:paddingEnd="24dp"
+                android:paddingBottom="14dp"
+                android:tag="1"
+                android:text="@string/female"
+                android:textColor="@{model.petSex == 1 ? @color/white: @color/black}"
+                android:textSize="15dp"
+                app:layout_constraintStart_toEndOf="@id/btn_male"
+                app:layout_constraintTop_toBottomOf="@id/tv_sex_comment" />
+
+            <pet.perpet.framework.widget.CheckedAppCompatButton
+                android:id="@+id/line2"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="24dp"
+                android:visibility="invisible"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btn_male" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <View
+            android:id="@+id/line1"
+            android:layout_width="match_parent"
+            android:layout_height="8dp"
+            android:background="@color/line_color"
+            app:layout_constraintTop_toBottomOf="@id/cl_sex" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

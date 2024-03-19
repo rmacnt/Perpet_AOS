@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="model"
+            type="pet.perpet.equal.presentation.subscribe.viewmodel.ItemApproximatelyVIewModel" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="8dp">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_item_header"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="24dp"
+            app:layout_constraintEnd_toStartOf="@id/tv_detail"
+            android:fontFamily="@font/gmarket_sans_medium"
+            android:text="@{model.name}"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/detail"
+            android:textColor="@color/text_hint_color"
+            android:textSize="13dp"
+            app:layout_constraintBottom_toBottomOf="@id/tv_item_header"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tv_item_header" />
+
+        <pet.perpet.equal.presentation.base.widget.BaseSimpleDraweeView
+            android:id="@+id/iv_item"
+            setSupportImageUrl="@{model.coverThumbnailUrl}"
+            android:layout_width="59dp"
+            android:layout_height="59dp"
+            android:layout_marginTop="8dp"
+            android:src="@drawable/ic_sample1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_item_header" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_item_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:fontFamily="@font/gmarket_sans_medium"
+            android:text="@{model.price}"
+            android:textColor="@color/text_hint_color"
+            android:textSize="15dp"
+            app:layout_constraintStart_toEndOf="@id/iv_item"
+            app:layout_constraintTop_toTopOf="@id/iv_item" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_item_detail"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="24dp"
+            android:fontFamily="@font/gmarket_sans_medium"
+            android:text="@{model.description}"
+            android:textColor="@color/text_hint_color"
+            android:textSize="14dp"
+            app:layout_constraintBottom_toBottomOf="@id/iv_item"
+            app:layout_constraintEnd_toStartOf="@id/tv_detail"
+            app:layout_constraintStart_toStartOf="@id/tv_item_price"
+            app:layout_constraintTop_toBottomOf="@id/tv_item_price" />
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            app:layout_constraintTop_toBottomOf="@id/tv_item_detail">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/gmarket_sans_medium"
+                android:text="@{model.totalPriceCall}"
+                android:textColor="@color/black"
+                android:textSize="15dp"
+                app:layout_constraintBottom_toBottomOf="@id/cl_more"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/cl_more" />
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_more"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/black_radius_4"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_minus"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:background="@android:color/transparent"
+                    android:fontFamily="@font/gmarket_sans_medium"
+                    android:onClick="@{model::onMinusClick}"
+                    android:text="-"
+                    android:textColor="@color/white"
+                    android:textSize="12dp"
+                    android:visibility="@{model.count == 0 ? View.GONE : View.VISIBLE}"
+                    app:layout_constraintEnd_toStartOf="@id/tv_item_more"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_item_more"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/gmarket_sans_medium"
+                    android:text="@{model.countCall}"
+                    android:textColor="@color/white"
+                    android:textSize="12dp"
+                    android:visibility="@{model.count == 0 ? View.GONE : View.VISIBLE}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/btn_more"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_more"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:background="@android:color/transparent"
+                    android:fontFamily="@font/gmarket_sans_medium"
+                    android:onClick="@{model::onPulsClick}"
+                    android:text="+"
+                    android:textColor="@color/white"
+                    android:textSize="12dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="16dp"
+                android:background="@color/line_color_ddd"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cl_more" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

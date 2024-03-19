@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="model"
+            type="pet.perpet.equal.presentation.sign.viewmodel.SignViewModel" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_living2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <View
+                android:layout_width="8dp"
+                android:layout_height="0dp"
+                android:background="@color/line_color_error"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@id/line2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tv_living2" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_living2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginEnd="24dp"
+                android:fontFamily="@font/gmarket_sans_bold"
+                android:paddingTop="24dp"
+                android:text="@string/sign_comment_45"
+                android:textColor="@color/black"
+                android:textSize="17dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_asked"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:fontFamily="@font/gmarket_sans_bold"
+                android:onClick="@{model::onLiving2AskClick}"
+                android:paddingTop="16dp"
+                android:text="@{model.viewAsk}"
+                android:textColor="@color/text_asked_green"
+                android:textSize="13dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_living2" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_living2_comment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="24dp"
+                android:fontFamily="@font/gmarket_sans_medium"
+                android:text="@string/sign_comment_46"
+                android:textColor="@color/text_hint_color"
+                android:textColorHint="@color/text_hint_color"
+                android:textSize="13dp"
+                android:visibility="@{model.petLiving2Ask ? View.VISIBLE : View.GONE}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_asked"
+                tools:ignore="DuplicateClickableBoundsCheck" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/ev_living2_1"
+                android:layout_width="match_parent"
+                android:layout_height="47dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="24dp"
+                android:background="@{model.petLiving2 == 1 ? @drawable/base_bottom_black_line_bg : @drawable/base_bottom_line_bg}"
+                android:drawableRight="@{model.petLiving2 == 1 ? @drawable/ic_check_ok : null}"
+                android:drawablePadding="8dp"
+                android:fontFamily="@font/gmarket_sans_medium"
+                android:hint="@string/sign_comment_47"
+                android:onClick="@{model::onLiving2Click}"
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp"
+                android:tag="1"
+                android:textColor="@{model.petLiving2 == 1 ? @color/black : @color/text_hint_color}"
+                android:textSize="15dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_living2_comment" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/ev_living2_2"
+                android:layout_width="match_parent"
+                android:layout_height="47dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginEnd="24dp"
+                android:background="@{model.petLiving2 == 2 ? @drawable/base_bottom_black_line_bg : @drawable/base_bottom_line_bg}"
+                android:drawableRight="@{model.petLiving2 == 2 ? @drawable/ic_check_ok : null}"
+                android:drawablePadding="8dp"
+                android:fontFamily="@font/gmarket_sans_medium"
+                android:hint="@string/sign_comment_48"
+                android:onClick="@{model::onLiving2Click}"
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp"
+                android:tag="2"
+                android:textColor="@{model.petLiving2 == 2? @color/black : @color/text_hint_color}"
+                android:textSize="15dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ev_living2_1" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/ev_living2_3"
+                android:layout_width="match_parent"
+                android:layout_height="47dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginEnd="24dp"
+                android:background="@{model.petLiving2 == 3 ? @drawable/base_bottom_black_line_bg : @drawable/base_bottom_line_bg}"
+                android:drawableRight="@{model.petLiving2 == 3 ? @drawable/ic_check_ok : null}"
+                android:drawablePadding="8dp"
+                android:fontFamily="@font/gmarket_sans_medium"
+                android:hint="@string/sign_comment_49"
+                android:onClick="@{model::onLiving2Click}"
+                android:paddingTop="16dp"
+                android:textColor="@{model.petLiving2 == 3? @color/black : @color/text_hint_color}"
+                android:paddingBottom="16dp"
+                android:tag="3"
+                android:textSize="15dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ev_living2_2" />
+
+
+            <pet.perpet.framework.widget.CheckedAppCompatButton
+                android:id="@+id/line2"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="24dp"
+                android:visibility="invisible"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ev_living2_3" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <View
+            android:id="@+id/line1"
+            android:layout_width="match_parent"
+            android:layout_height="8dp"
+            android:background="@color/line_color"
+            app:layout_constraintTop_toBottomOf="@id/cl_living2" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

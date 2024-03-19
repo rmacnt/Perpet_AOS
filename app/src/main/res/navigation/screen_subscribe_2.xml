@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/screen_subscribe_2">
+
+    <fragment
+        android:id="@+id/subscribe_fragment"
+        android:name="pet.perpet.equal.presentation.subscribe.fragment.SubscribeFragment"
+        tools:layout="@layout/subscribe_fragment">
+
+        <argument
+            android:name="medical"
+            android:defaultValue="@null"
+            app:argType="pet.perpet.domain.model.medical.Medical"
+            app:nullable="true" />
+
+        <argument
+            android:name="products"
+            app:nullable="true"
+            app:argType="pet.perpet.domain.model.product.Product[]"
+            android:defaultValue="@null" />
+
+        <argument
+            android:name="pet_id"
+            android:defaultValue="@null"
+            app:argType="string"
+            app:nullable="true" />
+
+        <argument
+            android:name="name"
+            android:defaultValue="@null"
+            app:argType="string"
+            app:nullable="true" />
+
+    </fragment>
+
+</navigation>

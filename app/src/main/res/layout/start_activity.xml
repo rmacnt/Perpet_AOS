@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="model"
+            type="pet.perpet.equal.presentation.start.viewmodel.StartViewModel" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/black">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_splash"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/splash_img_1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_top_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="18dp"
+                android:src="@drawable/ic_login_header"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:fontFamily="@font/gmarket_sans_medium"
+                android:text="@string/login_title_comment"
+                android:textColor="@color/white"
+                android:textSize="12dp"
+                android:visibility="gone"
+                app:layout_constraintStart_toEndOf="@id/iv_top_icon"
+                app:layout_constraintTop_toTopOf="@id/iv_top_icon" />
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="86dp"
+                android:layout_marginEnd="24dp"
+                android:layout_marginBottom="86dp"
+                app:layout_constraintBottom_toTopOf="@id/cl_bottom"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/iv_top_icon">
+
+                <pet.perpet.framework.widget.BaseViewPager
+                    android:id="@+id/viewpager"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    app:layout_constraintBottom_toTopOf="@id/indicator"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <me.relex.circleindicator.CircleIndicator
+                    android:id="@+id/indicator"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:layout_marginTop="16dp"
+                    app:ci_drawable="@drawable/indicator_on"
+                    app:ci_drawable_unselected="@drawable/indicator_off"
+                    app:ci_height="4dp"
+                    app:ci_width="12dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/viewpager" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_bottom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_recent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:background="@drawable/white_solid_radius_4"
+                    android:fontFamily="@font/gmarket_sans_bold"
+                    android:padding="4dp"
+                    android:text="@string/login_recent_type"
+                    android:textColor="@color/black"
+                    android:textSize="11dp"
+                    android:visibility="@{model.recent == 1 ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toTopOf="@id/kakao_frame"
+                    app:layout_constraintEnd_toEndOf="@id/kakao_frame"
+                    app:layout_constraintStart_toStartOf="@id/kakao_frame" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:background="@drawable/white_solid_radius_4"
+                    android:fontFamily="@font/gmarket_sans_bold"
+                    android:padding="4dp"
+                    android:text="@string/login_recent_type"
+                    android:textColor="@color/black"
+                    android:textSize="11dp"
+                    android:visibility="@{model.recent == 2 ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toTopOf="@id/naver_frame"
+                    app:layout_constraintEnd_toEndOf="@id/naver_frame"
+                    app:layout_constraintStart_toStartOf="@id/naver_frame" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:background="@drawable/white_solid_radius_4"
+                    android:fontFamily="@font/gmarket_sans_bold"
+                    android:padding="4dp"
+                    android:text="@string/login_recent_type"
+                    android:textColor="@color/black"
+                    android:textSize="11dp"
+                    android:visibility="@{model.recent == 3 ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toTopOf="@id/google_frame"
+                    app:layout_constraintEnd_toEndOf="@id/google_frame"
+                    app:layout_constraintStart_toStartOf="@id/google_frame" />
+
+
+                <FrameLayout
+                    android:id="@+id/kakao_frame"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="24dp"
+                    android:background="@drawable/border_4_whte_radius_18"
+                    android:onClick="@{model::onKakaoClick}"
+                    android:padding="20dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_login_kakao" />
+
+                </FrameLayout>
+
+                <FrameLayout
+                    android:id="@+id/naver_frame"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginBottom="24dp"
+                    android:background="@drawable/border_4_whte_radius_18"
+                    android:onClick="@{model::onNaverClick}"
+                    android:padding="20dp"
+                    app:layout_constraintStart_toEndOf="@id/kakao_frame"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_login_naver" />
+
+                </FrameLayout>
+
+                <FrameLayout
+                    android:id="@+id/google_frame"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginBottom="24dp"
+                    android:background="@drawable/border_4_whte_radius_18"
+                    android:onClick="@{model::onGoogleClick}"
+                    android:padding="20dp"
+                    app:layout_constraintStart_toEndOf="@id/naver_frame"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_login_google" />
+
+                </FrameLayout>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

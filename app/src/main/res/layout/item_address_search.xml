@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="model"
+            type="pet.perpet.equal.presentation.more.viewmodel.shipping.ItemAddressViewModel" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="24dp"
+        android:onClick="@{model::onClick}"
+        android:paddingTop="16dp"
+        android:paddingEnd="24dp">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_service_error"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/gmarket_sans_medium"
+            android:paddingBottom="8dp"
+            android:visibility="@{model.serviceResult ? View.GONE : View.VISIBLE}"
+            android:text="@string/shipping_comment29"
+            android:textColor="@color/line_color_error"
+            android:textSize="13dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_address_number"
+            android:layout_width="60dp"
+            android:text="@{model.zipNo}"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/gmarket_sans_medium"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_service_error"
+            tools:text="05304" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_address"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{model.roadAddress}"
+            android:layout_marginStart="8dp"
+            android:fontFamily="@font/gmarket_sans_medium"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tv_address_number"
+            app:layout_constraintTop_toBottomOf="@id/tv_service_error"
+            tools:text="서울 강동구 천중로 235 (자유빌딩)" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_address_two"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/gmarket_sans_medium"
+            android:textColor="@color/text_hint_color"
+            android:textSize="13dp"
+            android:text="@{model.jibunAddress}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tv_address_number"
+            app:layout_constraintTop_toBottomOf="@id/tv_address"
+            tools:text="서울 강동구 길동 91-8" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="16dp"
+            android:background="@color/line_color_ddd"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_address_two" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

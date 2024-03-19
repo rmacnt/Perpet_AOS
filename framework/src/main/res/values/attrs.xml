@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="recyclerviewStyle" format="reference" />
+
+    <attr format="dimension" name="dialogPreferredPadding"/>
+
+    <declare-styleable name="CalendarView">
+        <attr name="headerColor" format="color" />
+        <attr name="headerLabelColor" format="color" />
+        <attr name="previousButtonSrc" format="integer" />
+        <attr name="forwardButtonSrc" format="integer" />
+        <attr name="todayLabelColor" format="color" />
+        <attr name="selectionColor" format="color" />
+        <attr name="selectionLabelColor" format="color" />
+        <attr name="disabledDaysLabelsColor" format="color" />
+        <attr name="highlightedDaysLabelsColor" format="color" />
+        <attr name="pagesColor" format="color" />
+        <attr name="abbreviationsBarColor" format="color" />
+        <attr name="abbreviationsLabelsColor" format="color" />
+        <attr name="daysLabelsColor" format="color" />
+        <attr name="anotherMonthsDaysLabelsColor" format="color" />
+        <attr name="datePicker" format="boolean" />
+        <attr name="eventsEnabled" format="boolean" />
+        <attr name="swipeEnabled" format="boolean" />
+        <attr name="type" format="enum">
+            <enum name="classic" value="0" />
+            <enum name="one_day_picker" value="1" />
+            <enum name="many_days_picker" value="2" />
+            <enum name="range_picker" value="3" />
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="ExpandIconView">
+        <attr name="eiv_roundedCorners" format="boolean"/>
+        <attr name="eiv_switchColor" format="boolean"/>
+        <attr name="eiv_color" format="color"/>
+        <attr name="eiv_colorMore" format="color"/>
+        <attr name="eiv_colorLess" format="color"/>
+        <attr name="eiv_colorIntermediate" format="color"/>
+        <attr name="eiv_animationDuration" format="integer"/>
+        <attr name="eiv_padding" format="dimension"/>
+    </declare-styleable>
+
+    <declare-styleable name="UICalendar">
+
+        <attr name="showWeek" format="boolean" />
+        <attr name="hideArrows" format="boolean" value="true"/>
+        <attr name="datePattern" format="string" value="MMMM"/>
+
+        <attr name="firstDayOfWeek" format="enum">
+            <enum name="sunday" value="0" />
+            <enum name="monday" value="1" />
+            <enum name="tuesday" value="2" />
+            <enum name="wednesday" value="3" />
+            <enum name="thursday" value="4" />
+            <enum name="friday" value="5" />
+            <enum name="saturday" value="6" />
+        </attr>
+
+        <attr name="state" format="enum">
+            <enum name="expanded" value="0" />
+            <enum name="collapsed" value="1" />
+        </attr>
+
+        <attr name="textColor_cal" format="color" />
+        <attr name="primaryColor" format="color" />
+
+        <attr name="eventColor" format="color" />
+
+
+        <attr name="todayItem_textColor" format="color" />
+        <attr name="todayItem_background" format="integer" />
+
+        <attr name="selectedItem_textColor" format="color" />
+        <attr name="selectedItem_background" format="integer" />
+
+        <attr name="buttonLeft_drawable" format="integer" />
+        <attr name="buttonRight_drawable" format="integer" />
+
+        <attr name="buttonLeft_drawableTintColor" format="color" />
+        <attr name="buttonRight_drawableTintColor" format="color" />
+
+        <attr name="expandIconColor" format="color" />
+
+    </declare-styleable>
+
+</resources>

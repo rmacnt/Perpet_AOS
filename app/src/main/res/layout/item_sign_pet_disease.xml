@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="model"
+            type="pet.perpet.equal.presentation.sign.viewmodel.PetDiseaseViewModel" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_disease"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <View
+                android:layout_width="8dp"
+                android:layout_height="0dp"
+                android:background="@{model.error ? @color/line_color_error : @color/white}"
+                android:visibility="@{model.error ? View.VISIBLE : View.GONE}"
+                app:layout_constraintBottom_toBottomOf="@id/line2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tv_disease" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_disease"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginEnd="24dp"
+                android:fontFamily="@font/gmarket_sans_bold"
+                android:paddingTop="24dp"
+                android:text="@string/sign_comment_25"
+                android:textColor="@color/black"
+                android:textSize="17dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_error"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="24dp"
+                android:fontFamily="@font/gmarket_sans_bold"
+                android:text="@string/sign_comment_126"
+                android:textSize="13dp"
+                android:textColor="@{model.error ? @color/line_color_error : @color/white}"
+                android:visibility="@{model.error ? View.VISIBLE : View.GONE}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_disease" />
+
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_asked"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:fontFamily="@font/gmarket_sans_bold"
+                android:onClick="@{model::onDiseaseAskClick}"
+                android:paddingTop="16dp"
+                android:text="@{model.viewAsk}"
+                android:textColor="@color/text_asked_green"
+                android:textSize="13dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_error" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_disease_comment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="24dp"
+                android:fontFamily="@font/gmarket_sans_medium"
+                android:text="@string/sign_comment_12"
+                android:textColor="@color/text_hint_color"
+                android:textColorHint="@color/text_hint_color"
+                android:textSize="13dp"
+                android:visibility="@{model.petDiseaseAsk ? View.VISIBLE : View.GONE}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_asked"
+                tools:ignore="DuplicateClickableBoundsCheck" />
+
+            <pet.perpet.framework.widget.CheckedAppCompatButton
+                android:id="@+id/btn_yes"
+                setChecked="false"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="16dp"
+                android:background="@{model.petDisease == 0 ? @drawable/black_radius_8: @drawable/border_1_black_radius_8}"
+                android:fontFamily="@font/gmarket_sans_medium"
+                android:onClick="@{model::onDiseaseClick}"
+                android:paddingStart="24dp"
+                android:paddingTop="14dp"
+                android:paddingEnd="24dp"
+                android:paddingBottom="14dp"
+                android:tag="0"
+                android:text="@string/yes"
+                android:textColor="@{model.petDisease == 0 ? @color/white: @color/black}"
+                android:textSize="15dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_disease_comment"
+                tools:ignore="DuplicateClickableBoundsCheck" />
+
+            <pet.perpet.framework.widget.CheckedAppCompatButton
+                android:id="@+id/btn_no"
+                setChecked="false"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:background="@{model.petDisease == 1 ? @drawable/black_radius_8: @drawable/border_1_black_radius_8}"
+                android:fontFamily="@font/gmarket_sans_medium"
+                android:onClick="@{model::onDiseaseClick}"
+                android:paddingStart="24dp"
+                android:paddingTop="14dp"
+                android:paddingEnd="24dp"
+                android:paddingBottom="14dp"
+                android:tag="1"
+                android:text="@string/no"
+                android:textColor="@{model.petDisease == 1 ? @color/white: @color/black}"
+                android:textSize="15dp"
+                app:layout_constraintStart_toEndOf="@id/btn_yes"
+                app:layout_constraintTop_toBottomOf="@id/tv_disease_comment" />
+
+            <pet.perpet.framework.widget.recyclerview.BaseRecyclerView
+                android:id="@+id/recyclerview"
+                recyclerview.layoutMediator="@{model.diseaseMediator}"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:visibility="@{model.petDisease == 0 ? View.VISIBLE : View.GONE}"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="24dp"
+                app:layout_constraintTop_toBottomOf="@id/btn_yes" />
+
+            <pet.perpet.framework.widget.recyclerview.BaseRecyclerView
+                android:id="@+id/recyclerview_select"
+                recyclerview.layoutMediator="@{model.diseaseCommentMediator}"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="@{model.petDisease == 0 ? View.VISIBLE : View.GONE}"
+                android:layout_marginTop="32dp"
+                app:layout_constraintTop_toBottomOf="@id/recyclerview" />
+
+            <pet.perpet.framework.widget.CheckedAppCompatButton
+                android:id="@+id/line2"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="24dp"
+                android:visibility="invisible"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/recyclerview_select" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <View
+            android:id="@+id/line1"
+            android:layout_width="match_parent"
+            android:layout_height="8dp"
+            android:background="@color/line_color"
+            app:layout_constraintTop_toBottomOf="@id/cl_disease" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

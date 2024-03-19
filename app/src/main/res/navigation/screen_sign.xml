@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/screen_policy"
+    tools:ignore="InvalidNavigation">
+
+
+
+    <fragment
+        android:id="@+id/paper_weight_start_fragment"
+        android:name="pet.perpet.equal.presentation.paperweight.fragment.PaperWeightStartFragment"
+        tools:layout="@layout/bottom_policy_info">
+
+        <argument
+            android:name="user"
+            android:defaultValue="false"
+            app:argType="boolean" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/policy_info_alert_fragment"
+        android:name="pet.perpet.equal.presentation.start.fragment.PolicyInfoAlertFragment"
+        tools:layout="@layout/bottom_policy_info">
+
+        <argument
+            android:name="title"
+            android:defaultValue="@null"
+            app:argType="string"
+            app:nullable="true" />
+
+        <argument
+            android:name="url"
+            android:defaultValue="@null"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/intro_pager_fragment"
+        android:name="pet.perpet.equal.presentation.start.fragment.IntoPagerFragment"
+        tools:layout="@layout/bottom_policy_info">
+
+        <argument
+            android:name="type"
+            android:defaultValue="0"
+            app:argType="integer" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/pager_weight_intro_fragment"
+        android:name="pet.perpet.equal.presentation.paperweight.fragment.PagerWeightIntroFragment"
+        tools:layout="@layout/bottom_policy_info">
+
+        <argument
+            android:name="type"
+            android:defaultValue="0"
+            app:argType="integer" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/health_info_pager_fragment"
+        android:name="pet.perpet.equal.presentation.health.fragment.HealthInfoPagerFragment"
+        tools:layout="@layout/bottom_policy_info">
+
+        <argument
+            android:name="type"
+            android:defaultValue="0"
+            app:argType="integer" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/health_start_pager_fragment"
+        android:name="pet.perpet.equal.presentation.health.fragment.HealthStartPagerFragment"
+        tools:layout="@layout/bottom_policy_info">
+
+        <argument
+            android:name="type"
+            android:defaultValue="0"
+            app:argType="integer" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/bottom_birth_fragment"
+        android:name="pet.perpet.equal.presentation.sign.fragment.BottomBirthFragment"
+        tools:layout="@layout/bottom_policy_info">
+
+        <argument
+            android:name="year"
+            android:defaultValue="@null"
+            app:argType="string"
+            app:nullable="true" />
+
+        <argument
+            android:name="month"
+            android:defaultValue="@null"
+            app:argType="string"
+            app:nullable="true" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/bottom_breed_search_fragment"
+        android:name="pet.perpet.equal.presentation.sign.fragment.BottomBreedSearchFragment"
+        tools:layout="@layout/bottom_policy_info">
+
+        <argument
+            android:name="type"
+            android:defaultValue="@null"
+            app:argType="string"
+            app:nullable="true" />
+
+        <argument
+            android:name="breedId"
+            android:defaultValue="@null"
+            app:argType="string"
+            app:nullable="true" />
+
+    </fragment>
+
+
+
+
+</navigation>

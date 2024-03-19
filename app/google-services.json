@@ -1,0 +1,102 @@
+{
+  "project_info": {
+    "project_number": "762987337128",
+    "project_id": "equal-369402",
+    "storage_bucket": "equal-369402.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:762987337128:android:37303771eb3fe124cc799d",
+        "android_client_info": {
+          "package_name": "pet.perpet.equal"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "762987337128-1d310ji57dts4jarc5rbu3dcr57h2qdh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "pet.perpet.equal",
+            "certificate_hash": "95076a934179c31b031ec9db8ea1700d31120d62"
+          }
+        },
+        {
+          "client_id": "762987337128-6n9c1ed3efesuvkcn99csdrti5djrpdl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "pet.perpet.equal",
+            "certificate_hash": "0853cbe6fc59138664090450a072d25492147e2a"
+          }
+        },
+        {
+          "client_id": "762987337128-d71kae2u72m8544e020mpkatf8gdcorj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "pet.perpet.equal",
+            "certificate_hash": "f78175228ee9cc3c42bf7c418af48d1c80db57df"
+          }
+        },
+        {
+          "client_id": "762987337128-e7bd6sicotko9orj0fapnrl0ekitksle.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "pet.perpet.equal",
+            "certificate_hash": "59d4a76d02246933e14a8798f6d9f5f926a9bb46"
+          }
+        },
+        {
+          "client_id": "762987337128-hagfuin91lso18h3rt1uhonqhe3uncrr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "pet.perpet.equal",
+            "certificate_hash": "7b0e73ea06e4e095170d19eaee05bc052b7bd4c3"
+          }
+        },
+        {
+          "client_id": "762987337128-i4o2r4rhiju817ek4gbosab7qdnq7d75.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "pet.perpet.equal",
+            "certificate_hash": "3dbeb8639f8a6da0ee745223257edd9b688d71ac"
+          }
+        },
+        {
+          "client_id": "762987337128-lopgpv75ib94g8lm65a7ceok8spflcgb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "pet.perpet.equal",
+            "certificate_hash": "953fd8bd2ea9c12f71f7660f9f54a85138a1ab88"
+          }
+        },
+        {
+          "client_id": "762987337128-okkqjnvfvs4tojohsif8l8ui2h86ic5j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDHebvvxZ5CeHzPHpyK5mUz0rb8zP68Ucs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "762987337128-a0dc2llkqefj4mqmvhthmprlttlrt559.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "762987337128-absnu1siom0reimt2a94bbjjlnr8q5hc.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "pet.perpet.equal"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/home_detail_fragment">
+
+
+    <fragment
+        android:id="@+id/home_detail_fragment"
+        android:name="pet.perpet.equal.presentation.home.fragment.HomeDetailFragment">
+
+
+        <argument
+            android:name="mainCard"
+            android:defaultValue="@null"
+            app:argType="pet.perpet.domain.model.main.MainCard"
+            app:nullable="true" />
+
+        <argument
+            android:name="url"
+            android:defaultValue="@null"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/bottom_feed_fragment"
+        android:name="pet.perpet.equal.presentation.home.fragment.BottomFeedFragment">
+
+
+        <argument
+            android:name="target_id"
+            android:defaultValue="@null"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
+
+
+</navigation>

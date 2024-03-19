@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="UnusedNavigation"
+    android:id="@+id/examination_result_fragment">
+
+
+    <fragment
+        android:id="@+id/examination_result_fragment"
+        android:name="pet.perpet.equal.presentation.examination.fragment.ExaminationResultFragment">
+
+        <argument
+            android:name="name"
+            android:defaultValue="@null"
+            app:argType="string"
+            app:nullable="true" />
+
+        <argument
+            android:name="id"
+            android:defaultValue="@null"
+            app:argType="string"
+            app:nullable="true" />
+
+        <argument
+            android:name="pet_id"
+            android:defaultValue="@null"
+            app:argType="string"
+            app:nullable="true" />
+
+        <argument
+            android:name="result"
+            android:defaultValue="false"
+            app:argType="boolean" />
+    </fragment>
+
+
+</navigation>

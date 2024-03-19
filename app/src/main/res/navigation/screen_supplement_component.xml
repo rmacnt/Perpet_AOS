@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/screen_supplement_component">
+
+    <fragment
+        android:id="@+id/supplement_component_fragment"
+        android:name="pet.perpet.equal.presentation.supplement.fragment.SupplementComponentFragment">
+
+        <argument
+            android:name="product"
+            android:defaultValue="@null"
+            app:argType="pet.perpet.domain.model.medical.Product"
+            app:nullable="true" />
+
+    </fragment>
+
+
+</navigation>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/screen_search_detail">
+
+    <fragment
+        android:id="@+id/search_detail_fragment"
+        android:name="pet.perpet.equal.presentation.search.fragment.SearchDetailFragment">
+
+
+        <argument
+            android:name="url"
+            android:defaultValue="@null"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="searchArticle"
+            android:defaultValue="@null"
+            app:argType="pet.perpet.domain.model.search.SearchArticle"
+            app:nullable="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/search_supplement_detail_fragment"
+        android:name="pet.perpet.equal.presentation.search.fragment.SearchSupplementDetailFragment">
+
+
+        <argument
+            android:name="searchProduct"
+            android:defaultValue="@null"
+            app:argType="pet.perpet.domain.model.search.SearchProduct"
+            app:nullable="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/search_supplement_component_fragment"
+        android:name="pet.perpet.equal.presentation.search.fragment.SearchSupplementComponentFragment">
+
+
+        <argument
+            android:name="searchProduct"
+            android:defaultValue="@null"
+            app:argType="pet.perpet.domain.model.search.SearchProduct"
+            app:nullable="true" />
+    </fragment>
+
+
+
+
+</navigation>

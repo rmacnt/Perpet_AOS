@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="model"
+            type="pet.perpet.equal.presentation.start.viewmodel.PolicyAlertViewModel" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/base_bottom_alert_bg"
+            android:orientation="vertical"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_close"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="@{model::onNegativeClick}"
+                android:paddingTop="14dp"
+                android:paddingBottom="14dp"
+                android:src="@drawable/ic_bottom_header"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginEnd="24dp"
+                android:fontFamily="@font/gmarket_sans_bold"
+                android:gravity="left"
+                android:paddingTop="16dp"
+                android:text="@string/bottom_comment_1"
+                android:textColor="@color/bottom_title"
+                android:textSize="22dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/iv_close" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_sub_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/gmarket_sans_medium"
+                android:layout_marginEnd="24dp"
+                android:text="@string/bottom_comment_2"
+                android:textColor="@color/bottom_title1"
+                android:textSize="13dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_title" />
+
+            <androidx.appcompat.widget.AppCompatCheckBox
+                android:id="@+id/cb_all"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="40dp"
+                android:button="@drawable/base_checkbox_selector"
+                android:checked="@{model.allClick}"
+                android:fontFamily="@font/gmarket_sans_medium"
+                android:onClick="@{model::onAllClick}"
+                android:paddingStart="16dp"
+                android:text="@string/bottom_comment_3"
+                android:textColor="@color/text_hint_color"
+                android:textSize="15dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_sub_title" />
+
+            <View
+                android:id="@+id/line"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="24dp"
+                android:background="@color/line_color_ddd"
+                app:layout_constraintTop_toBottomOf="@id/cb_all" />
+
+            <androidx.appcompat.widget.AppCompatCheckBox
+                android:id="@+id/cb_policy1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="24dp"
+                android:button="@drawable/base_checkbox_selector"
+                android:checked="@{model.termUse}"
+                android:fontFamily="@font/gmarket_sans_medium"
+                android:onClick="@{model::onTermItemClick}"
+                android:paddingStart="16dp"
+                android:text="@string/bottom_comment_4"
+                android:textColor="@{model.onTermTextColor}"
+                android:textSize="15dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/line" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="24dp"
+                android:fontFamily="@font/gmarket_sans_medium"
+                android:onClick="@{model::onTermClick}"
+                android:text="@{model.viewComment}"
+                android:textColor="@{model.onTermTextColor}"
+                android:textSize="13dp"
+                app:layout_constraintBottom_toBottomOf="@id/cb_policy1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/cb_policy1" />
+
+            <androidx.appcompat.widget.AppCompatCheckBox
+                android:id="@+id/cb_policy2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="24dp"
+                android:button="@drawable/base_checkbox_selector"
+                android:checked="@{model.infoUse}"
+                android:fontFamily="@font/gmarket_sans_medium"
+                android:onClick="@{model::onInfoItemClick}"
+                android:paddingStart="16dp"
+                android:text="@string/bottom_comment_5"
+                android:textColor="@{model.onInfoTextColor}"
+                android:textSize="15dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cb_policy1" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="24dp"
+                android:fontFamily="@font/gmarket_sans_medium"
+                android:onClick="@{model::onInfoClick}"
+                android:text="@{model.viewComment}"
+                android:textColor="@{model.onInfoTextColor}"
+                android:textSize="13dp"
+                app:layout_constraintBottom_toBottomOf="@id/cb_policy2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/cb_policy2" />
+
+            <androidx.appcompat.widget.AppCompatCheckBox
+                android:id="@+id/cb_policy3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="24dp"
+                android:button="@drawable/base_checkbox_selector"
+                android:checked="@{model.marketingUse}"
+                android:fontFamily="@font/gmarket_sans_medium"
+                android:onClick="@{model::onMarketingItemClick}"
+                android:paddingStart="16dp"
+                android:text="@string/bottom_comment_6"
+                android:textColor="@{model.onMarketingTextColor}"
+                android:textSize="15dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cb_policy2" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="24dp"
+                android:fontFamily="@font/gmarket_sans_medium"
+                android:onClick="@{model::onMarketingClick}"
+                android:text="@{model.viewComment}"
+                android:textColor="@{model.onMarketingTextColor}"
+                android:textSize="13dp"
+                app:layout_constraintBottom_toBottomOf="@id/cb_policy3"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/cb_policy3" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                buttonAble="@{model.checkUse}"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginEnd="24dp"
+                android:layout_marginBottom="16dp"
+                android:background="@{model.checkUse ? @drawable/black_radius_8 : @drawable/ddd_radius_8}"
+                android:enabled="@{model.checkUse}"
+                android:fontFamily="@font/gmarket_sans_medium"
+                android:onClick="@{model::onClick}"
+                android:text="@string/bottom_comment_8"
+                android:textColor="@color/white"
+                android:textSize="15dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cb_policy3" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
